@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #444;
+    }
+    nav button {
+      background: none;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    nav button:hover {
+      background-color: #666;
+    }
+    section {
+      display: none;
+      padding: 20px;
+      animation: fadeIn 0.5s;
+    }
+    section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .project {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: white;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>John Doe</h1>
+    <p>Web Developer | Designer | Coder</p>
+  </header>
+
+  <nav>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('projects')">Projects</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+
+  <section id="about" class="active">
+    <h2>About Me</h2>
+    <p>Hello! I'm John, a passionate web developer with a knack for creating sleek and functional websites. I love working with HTML, CSS, and JavaScript to bring ideas to life on the web.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>A clean and responsive portfolio site built using only HTML, CSS, and JavaScript.</p>
+    </div>
+    <div class="project">
+      <h3>Todo App</h3>
+      <p>A simple and interactive todo list app with local storage support.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form onsubmit="submitForm(event)">
+      <label>Name:</label>
+      <input type="text" required>
+      <label>Email:</label>
+      <input type="email" required>
+      <label>Message:</label>
+      <textarea rows="5" required></textarea>
+      <input type="submit" value="Send">
+    </form>
+    <p id="form-msg" style="color: green;"></p>
+  </section>
+
+  <footer>
+    &copy; 2025 John Doe
+  </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      document.getElementById('form-msg').innerText = "Thanks for your message!";
+    }
+  </script>
+
+</body>
+</html>
